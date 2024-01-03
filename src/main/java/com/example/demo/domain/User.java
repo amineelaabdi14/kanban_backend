@@ -1,13 +1,12 @@
 package com.example.demo.domain;
 
 
-import com.example.demo.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import com.example.demo.domain.enums.Role;
 import java.util.Collection;
 import java.util.List;
 
@@ -21,11 +20,17 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String firstName;
+
     private String lastName;
+
     private String email;
+
     private int token;
+
     private String password;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 

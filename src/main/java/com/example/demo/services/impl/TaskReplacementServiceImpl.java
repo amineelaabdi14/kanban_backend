@@ -1,22 +1,22 @@
-package taskflow.service.impl;
+package com.example.demo.services.impl;
 
+import com.example.demo.domain.Task;
+import com.example.demo.domain.TaskReplacement;
+import com.example.demo.domain.User;
+import com.example.demo.domain.enums.Role;
+import com.example.demo.domain.enums.TaskAction;
+import com.example.demo.domain.enums.TaskReplacementStatus;
+import com.example.demo.dto.request.ApproveTaskReplacementRequestDTO;
+import com.example.demo.dto.request.RejectTaskReplacementRequestDTO;
+import com.example.demo.dto.request.TaskReplacementRequestDTO;
+import com.example.demo.dto.response.TaskReplacementResponseDTO;
+import com.example.demo.repository.TaskReplacementRepository;
+import com.example.demo.repository.TaskRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.services.TaskReplacementService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import taskflow.dto.request.ApproveTaskReplacementRequestDTO;
-import taskflow.dto.request.RejectTaskReplacementRequestDTO;
-import taskflow.dto.request.TaskReplacementRequestDTO;
-import taskflow.dto.response.TaskReplacementResponseDTO;
-import taskflow.entities.Task;
-import taskflow.entities.TaskReplacement;
-import taskflow.entities.User;
-import taskflow.entities.enums.Role;
-import taskflow.entities.enums.TaskAction;
-import taskflow.entities.enums.TaskReplacementStatus;
-import taskflow.repository.TaskReplacementRepository;
-import taskflow.repository.TaskRepository;
-import taskflow.repository.UserRepository;
-import taskflow.service.TaskReplacementService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

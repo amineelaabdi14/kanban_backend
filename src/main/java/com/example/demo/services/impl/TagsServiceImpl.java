@@ -6,6 +6,7 @@ import com.example.demo.dto.response.TagsResponseDTO;
 import com.example.demo.repository.TagsRepository;
 import com.example.demo.services.TagsService;
 import jakarta.persistence.EntityNotFoundException;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -44,7 +45,7 @@ public class TagsServiceImpl implements TagsService {
     @Override
     public TagsResponseDTO getTags(Long id) {
         try {
-            Tags tags = tagsRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Tags not found with id: " + id));
+            Tag tags = tagsRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Tags not found with id: " + id));
             return new TagsResponseDTO(tags.getId(), tags.getName(), "success", "Tag retrieved successfully");
         } catch (EntityNotFoundException e) {
             return new TagsResponseDTO("error", "Tags not found with id: " + id);

@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.domain.Tag;
 import com.example.demo.domain.Task;
 import com.example.demo.domain.TaskReplacement;
 import com.example.demo.domain.User;

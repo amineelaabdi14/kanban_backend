@@ -1,20 +1,20 @@
 package com.example.demo.services.impl;
 
+import com.example.demo.domain.Tag;
+import com.example.demo.domain.Task;
+import com.example.demo.domain.User;
+import com.example.demo.domain.enums.Role;
+import com.example.demo.domain.enums.TaskStatus;
+import com.example.demo.dto.request.*;
+import com.example.demo.dto.response.TaskOverviewResponseDTO;
+import com.example.demo.dto.response.TaskResponseDTO;
+import com.example.demo.repository.TagsRepository;
+import com.example.demo.repository.TaskRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.services.TaskService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import taskflow.dto.request.*;
-import taskflow.dto.response.TaskOverviewResponseDTO;
-import taskflow.dto.response.TaskResponseDTO;
-import taskflow.entities.Tags;
-import taskflow.entities.Task;
-import taskflow.entities.User;
-import taskflow.entities.enums.Role;
-import taskflow.entities.enums.TaskStatus;
-import taskflow.repository.TagsRepository;
-import taskflow.repository.TaskRepository;
-import taskflow.repository.UserRepository;
-import taskflow.service.TaskService;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -77,8 +77,8 @@ public class TaskServiceImpl implements TaskService {
                 // Associate tags with the task
                 List<Long> tagIds = taskRequestDTO.getTagIds();
                 if (tagIds != null && !tagIds.isEmpty()) {
-                    List<Tags> tags = tagRepository.findAllById(tagIds);
-                    task.setTags(new HashSet<>(tags));
+                    List<Tag> tags = tagRepository.findAllById(tagIds);
+                    task.setTags((List<Tag>) new HashSet<>(tags));
                 }
 
                 task = taskRepository.save(task);

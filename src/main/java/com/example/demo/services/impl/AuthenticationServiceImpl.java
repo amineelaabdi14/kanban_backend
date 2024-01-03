@@ -1,5 +1,6 @@
 package com.example.demo.services.impl;
 
+import com.example.demo.config.JwtService;
 import com.example.demo.domain.User;
 import com.example.demo.domain.enums.Role;
 import com.example.demo.dto.request.AuthenticationRequest;
